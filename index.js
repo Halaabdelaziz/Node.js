@@ -2,18 +2,24 @@
 // const {logRequest} = require('./generalHelpers')
 // const { v4: uuidv4 } = require("uuid");
 // const { validateUser } = require("./userHelpers");
+
 const express = require('express')
 const fs = require('fs')
 const app = express()
-const port = 3000
+const port = 5000
 const bodyParser = require('body-parser')
 const userRouter = require('./routers/usersRouter')
+var jwt = require('jsonwebtoken');
+require('./connectDB')
+
+// const student  = require('./models/std.js')
+// const serverConfig= require('./configUser.js')
+
 
 app.use(bodyParser.json())
 
 
 app.use('/users',userRouter);
-
 
 
 app.use((err,req,res,next)=>{
@@ -29,6 +35,23 @@ app.use((err,req,res,next)=>{
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
